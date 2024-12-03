@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  flex-shrink: 0;
+  font-weight: normal;
+  font-size: 100%;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  color: initial;
+  font-family: inherit;
+  list-style: none;
+  vertical-align: baseline;
+  background: none;
+  outline: none;
+}

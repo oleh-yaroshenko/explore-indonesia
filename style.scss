@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+$blue: #DCE8F2;
+$blue-dark: #010A20;
+$blue-dark40: #15143966;
+$blue-light: #85A3B2;
+$gray-warm: #939393;
+$gray-cold: #6F7787;
+$gray-light: #E0E0E0;
+$red: #DD2242;
+$pink: #E93A7D;
+$white: #ffffff;
+$black: #000000;
+
+* {
+    padding: 0;
+    margin: 0;
+    flex-shrink: 0;
+    font-weight: normal;
+    font-size: 100%;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    color: initial;
+    font-family: inherit;
+    list-style: none;
+    vertical-align: baseline;
+    background: none;
+    outline: none;
+}

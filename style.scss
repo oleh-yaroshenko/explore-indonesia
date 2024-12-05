@@ -135,13 +135,14 @@ body {
     top: 124px;
     z-index: 3;
     height: calc(100vh - 124px - 44px);
+    width: fit-content;
 }
 
 .header-indicator-wrapper {
     display: flex;
     flex-direction: column;
     height: calc(100% - 40px - 134px);
-    align-items: center;
+    align-items: start;
     width: fit-content;
 }
 
@@ -173,8 +174,9 @@ body {
     align-items: center;
     column-gap: 40px;
     transform: rotate(-90deg) translateX(calc(135px/2)) translateY(-40%);
-    position: relative;
+    position: absolute;
     left: calc(-120px/2);
+    bottom: 0;
 }
 
 .header-indicator-social-a {
@@ -469,10 +471,14 @@ body {
     padding: 0 224px;
 }
 
+.main-explore-slider-overflow {
+    width: 100%;
+    overflow: hidden;
+}
+
 .main-explore-slider-wrapper {
     display: flex;
     transition: .3s;
-    width: 100%;
     gap: 30px;
 }
 
@@ -490,7 +496,6 @@ body {
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    height: 23px;
     transition: .3s;
 
     &:hover {

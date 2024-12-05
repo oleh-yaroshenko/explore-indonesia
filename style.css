@@ -116,13 +116,15 @@ body {
   top: 124px;
   z-index: 3;
   height: calc(100vh - 124px - 44px);
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .header-indicator-wrapper {
   display: flex;
   flex-direction: column;
   height: calc(100% - 40px - 134px);
-  align-items: center;
+  align-items: start;
   width: -moz-fit-content;
   width: fit-content;
 }
@@ -156,8 +158,9 @@ body {
   -moz-column-gap: 40px;
        column-gap: 40px;
   transform: rotate(-90deg) translateX(67.5px) translateY(-40%);
-  position: relative;
+  position: absolute;
   left: -60px;
+  bottom: 0;
 }
 
 .header-indicator-social-a {
@@ -443,10 +446,14 @@ body {
   padding: 0 224px;
 }
 
+.main-explore-slider-overflow {
+  width: 100%;
+  overflow: hidden;
+}
+
 .main-explore-slider-wrapper {
   display: flex;
   transition: 0.3s;
-  width: 100%;
   gap: 30px;
 }
 
@@ -464,7 +471,6 @@ body {
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
-  height: 23px;
   transition: 0.3s;
 }
 .main-explore-slider-btn:hover {

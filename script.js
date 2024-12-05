@@ -14,16 +14,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextButton = document.querySelector('.next');
     const paginationContainer = document.querySelector('.main-explore-slider-pagination');
 
+    const totalSlides = carouselSlides.length;
+    const slidesToShow = 3;
+    const totalViews = totalSlides - slidesToShow + 1;
     let currentIndex = 0;
 
-    carouselSlides.forEach((_, index) => {
+    const gap = parseInt(getComputedStyle(carouselWrapper).gap);
+    const slideWidth = carouselSlides[0].offsetWidth + gap;
+
+    for (let i = 0; i < totalViews; i++) {
         const dot = document.createElement('div');
         dot.classList.add('main-explore-slider-pagination-dot');
         dot.addEventListener('click', () => {
-            showSlide(index);
+            showSlide(i);
         });
         paginationContainer.appendChild(dot);
-    });
+    }
 
     const paginationDots = document.querySelectorAll('.main-explore-slider-pagination-dot');
 
@@ -34,14 +40,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function showSlide(index) {
-        if (index >= carouselSlides.length) {
+        if (index < 0) {
             currentIndex = 0;
-        } else if (index < 0) {
-            currentIndex = carouselSlides.length - 1;
+        } else if (index >= totalViews) {
+            currentIndex = totalViews - 1;
         } else {
             currentIndex = index;
         }
-        carouselWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+        carouselWrapper.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
         updatePagination();
     }
 

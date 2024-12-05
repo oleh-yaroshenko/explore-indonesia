@@ -8,6 +8,55 @@ window.addEventListener("scroll", () => {
 })
 
 document.addEventListener('DOMContentLoaded', () => {
+    const carouselWrapper = document.querySelector('.main-explore-slider-mobile-wrapper');
+    const carouselSlides = document.querySelectorAll('.main-explore-slider-mobile-wrapper-card');
+    const prevButton = document.querySelector('.prev-mobile');
+    const nextButton = document.querySelector('.next-mobile');
+    const paginationContainer = document.querySelector('.main-explore-slider-mobile-pagination');
+
+    let currentIndex = 0;
+
+    carouselSlides.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('main-explore-slider-mobile-pagination-dot');
+        dot.addEventListener('click', () => {
+            showSlide(index);
+        });
+        paginationContainer.appendChild(dot);
+    });
+
+    const paginationDots = document.querySelectorAll('.main-explore-slider-mobile-pagination-dot');
+
+    function updatePagination() {
+        paginationDots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+        });
+    }
+
+    function showSlide(index) {
+        if (index >= carouselSlides.length) {
+            currentIndex = 0;
+        } else if (index < 0) {
+            currentIndex = carouselSlides.length - 1;
+        } else {
+            currentIndex = index;
+        }
+        carouselWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+        updatePagination();
+    }
+
+    prevButton.addEventListener('click', () => {
+        showSlide(currentIndex - 1);
+    });
+
+    nextButton.addEventListener('click', () => {
+        showSlide(currentIndex + 1);
+    });
+
+    showSlide(currentIndex);
+});
+
+document.addEventListener('DOMContentLoaded', () => {
     const carouselWrapper = document.querySelector('.main-explore-slider-wrapper');
     const carouselSlides = document.querySelectorAll('.main-explore-slider-wrapper-card');
     const prevButton = document.querySelector('.prev');
